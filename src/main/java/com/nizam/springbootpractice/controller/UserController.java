@@ -3,6 +3,7 @@ package com.nizam.springbootpractice.controller;
 import java.util.List;
 
 import com.nizam.springbootpractice.entity.User;
+import com.nizam.springbootpractice.handler.RestException;
 import com.nizam.springbootpractice.service.user.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUser(@PathVariable Long id) throws Exception {
+    public ResponseEntity<User> getUser(@PathVariable Long id) throws RestException {
         log.info("User Controller - getUser");
         User user = userService.getUserById(id);
         return ResponseEntity.ok(user);
