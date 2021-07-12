@@ -27,6 +27,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping
     public ResponseEntity<User> addUser(@RequestBody User user) {
         log.info("User Controller - addUser");
@@ -34,6 +35,7 @@ public class UserController {
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
     
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
     @GetMapping
     public ResponseEntity<List<User>> getAll() {
         log.info("User Controller - getAll");
