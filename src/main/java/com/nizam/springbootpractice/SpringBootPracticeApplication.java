@@ -27,6 +27,7 @@ public class SpringBootPracticeApplication {
 	@PostConstruct
 	public void insertDbData() {
 
+		// TODO: Enter valid email id
 		User user = User.builder().name("Mohideen").email("nizam@gmail.com").mobile("123654789")
 				.roles(Arrays.asList(
 					Role.builder().name("ROLE_ADMIN").build(),
